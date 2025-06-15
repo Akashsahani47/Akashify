@@ -11,18 +11,6 @@ const SignUpPage = () => {
     password: "",
   });
 
-  // This is how we did it at first, without using our custom hook
-  // const queryClient = useQueryClient();
-  // const {
-  //   mutate: signupMutation,
-  //   isPending,
-  //   error,
-  // } = useMutation({
-  //   mutationFn: signup,
-  //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-  // });
-
-  // This is how we did it using our custom hook - optimized version
   const { isPending, error, signupMutation } = useSignUp();
 
   const handleSignup = (e) => {
@@ -42,7 +30,7 @@ const SignUpPage = () => {
           <div className="mb-4 flex items-center justify-start gap-2">
             <ShipWheelIcon className="size-9 text-primary" />
             <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-              Streamify
+              Akashify
             </span>
           </div>
 
@@ -59,7 +47,7 @@ const SignUpPage = () => {
                 <div>
                   <h2 className="text-xl font-semibold">Create an Account</h2>
                   <p className="text-sm opacity-70">
-                    Join Streamify and start your language learning adventure!
+                    Join Akashify and start your language learning adventure!
                   </p>
                 </div>
 
@@ -71,7 +59,7 @@ const SignUpPage = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="John Doe"
+                      placeholder="Enter Your Fullname"
                       className="input input-bordered w-full"
                       value={signupData.fullName}
                       onChange={(e) => setSignupData({ ...signupData, fullName: e.target.value })}
@@ -85,7 +73,7 @@ const SignUpPage = () => {
                     </label>
                     <input
                       type="email"
-                      placeholder="john@gmail.com"
+                      placeholder="Enter your Email"
                       className="input input-bordered w-full"
                       value={signupData.email}
                       onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
@@ -99,7 +87,7 @@ const SignUpPage = () => {
                     </label>
                     <input
                       type="password"
-                      placeholder="********"
+                      placeholder="Enter your Password"
                       className="input input-bordered w-full"
                       value={signupData.password}
                       onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
